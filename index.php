@@ -12,6 +12,8 @@ $datos = $datos->fetchAll();
 
 <head>
     <?php include("inc/head.php"); ?>
+    <link rel="stylesheet" href="CSS/style.css">
+
 </head>
 
 <body>
@@ -20,32 +22,36 @@ $datos = $datos->fetchAll();
 
 
 
-    <table class="table table-dark table-striped">
+<div class="table-container">
+    <table class="custom-table">
         <thead>
-
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Medidor</th>
-                <th scope="col">lote y poligono</th>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Medidor</th>
+                <th>Lote y Polígono</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($datos as $dato) { ?>
                 <tr>
-                    <th scope="row"><?php echo $dato['id']; ?></th>
+                    <td><strong><?php echo $dato['id']; ?></strong></td>
                     <td><?php echo $dato['nombre']; ?></td>
                     <td><?php echo $dato['direccion']; ?></td>
-                    <td><?php echo $dato['medidor']; ?></td>
+                    <td><code><?php echo $dato['medidor']; ?></code></td>
                     <td><?php echo $dato['lote_poligono']; ?></td>
-                    <td> <a href="/proino/vistas/recibo.php?id=<?php echo $dato['id']; ?>" 
-                    class="button is-success is-rounded is-small">generar recibo</a>
-                        </a></td>
+                    <td>
+                        <a href="/proino/vistas/recibo.php?id=<?php echo $dato['id']; ?>" class="btn-recibo">
+                           📄 Generar Recibo
+                        </a>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
+</div>
 
 </body>
 

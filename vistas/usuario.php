@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <?php include("../inc/head.php"); ?>
+<link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
 <?php
@@ -47,8 +48,9 @@ include("../inc/navbar.php");
   </div>
 
   <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+    <button  type="button" class="btn btn-primary" onclick="window.location.href='/proino/index.php'">REGRESAR</button>
     <button type="reset" class="btn btn-outline-secondary me-md-2">Limpiar</button>
-    <button type="submit" class="btn btn-primary">Guardar Registro</button>
+    <button type="submit" class="btn btn-primary" >Guardar Registro</button>
   </div>
 </form>
 <script src="../js/ajax.js"></script>    

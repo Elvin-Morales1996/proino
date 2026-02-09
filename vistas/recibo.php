@@ -1,11 +1,34 @@
+<?php    
+$id = (isset($_GET['id'])) ? $_GET['id'] : 0;
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
    <?php include("../inc/head.php"); ?>
+   <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <?php include("../inc/navbar.php"); ?>
+    <?php include("../inc/navbar.php");?>
+
     <div class="row align-items-center mb-4">
+<?php    
+include("../configuracion/config.php");
+$check_usuario = conexion();
+$check_usuario =$check_usuario->query("SELECT * FROM clientes WHERE id = $id");
+
+
+if ($check_usuario->rowCount() > 0) {
+   
+$datos = $check_usuario->fetch();
+
+
+?>
+
+
             <div class="col-md-8">
                 <h1 class="text-primary">RESIDENCIAL HACIENDA SAN FRANCISCO</h1>
                 <p class="text-muted">Sistema de Control de Consumo de Agua</p>
@@ -16,20 +39,21 @@
             <div class="row">
                 <div class="col-md-6 border-end">
                     <h5 class="mb-3 text-secondary">Datos del Cliente</h5>
-
-                    <div class="mb-3"> <label class="form-label">NOMBRE DEL USUARIO</label> 
-                    <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>">
-
-                 </div>
+<!--nombre-->
+                    <div class="mb-3"> <label class="form-label">NOMBRE DEL CLIENTE</label> <select id="medidor_usuario" 
+                     class="form-select">
+                          <option value=""><?php echo $datos['nombre']; ?></option></option>
+                        </select> </div>
 <!--N° MEDIDOR-->
-                    <div class="mb-3"> <label class="form-label">N° MEDIDOR</label> <select id="medidor_usuario" class="form-select">
-                          </option>
+                    <div class="mb-3"> <label class="form-label">N° MEDIDOR</label> <select id="medidor_usuario" 
+                     class="form-select">
+                          <option value=""><?php echo $datos['medidor']; ?></option></option>
                         </select> </div>
 
 
 <!--poligono-->
                     <div class="mb-3"> <label class="form-label">LOTE Y POLIGONO</label> <select id="poligono_usuario" class="form-select">
-                            </option>
+                            <option value=""><?php echo $datos['lote_poligono']; ?></option></option>
                         </select> </div>
                     <div class="mb-3"> <label class="form-label">MES</label> <select class="form-select">
                             <option>ENERO</option>
@@ -77,6 +101,19 @@
             </div>
             <div class="mt-4 text-center"> <button type="submit" class="btn btn-primary btn-lg w-50">Generar Recibo</button> </div>
         </form>
+        <?php    
+
+}else {
+    echo '<div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-octagon-fill fs-4 me-2"></i>
+            <div><strong>¡Atención!</strong> no hay cliente con ese id.</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>';
+exit();
+}
+$check_usuario=null; // Cerrar la conexión
+?>
+
     </div>
     <script src="../js/calcular_consumo.js"></script>
     <script src="../js/ajax.js"></script>
