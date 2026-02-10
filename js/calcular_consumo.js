@@ -1,8 +1,8 @@
 
   function calcular() {
     // 1. Obtener los valores de los inputs
-    var n1 = parseFloat(document.getElementById('lectura_actual').value);
-    var n2 = parseFloat(document.getElementById('lectura_anterior').value);
+    var n1 = parseFloat(document.getElementById('lec_actual').value);
+    var n2 = parseFloat(document.getElementById('lec_anterior').value);
     var n3 = parseFloat(document.getElementById('mantenimiento').value);
     var n4 = parseFloat(document.getElementById('saldo_pendiente').value);
     var n5 = parseFloat(document.getElementById('recargo_mora').value);
