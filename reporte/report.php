@@ -1,37 +1,29 @@
-
-
 <?php
-require_once __DIR__ . '/../dompdf/autoload.inc.php';
+require_once '../dompdf/autoload.inc.php';
 
 use Dompdf\Dompdf;
 
-// Capturar datos del formulario
-$cliente            = $_POST['nombre'];
-$medidor            = $_POST['medidor'];
-$lote               = $_POST['lote_poligono'];
-$mes                = $_POST['mes'];
-$direccion          = $_POST['direccion'];
-$fecha_inicio       = $_POST['fecha_inicio'];
-$fecha_lectura      = $_POST['fecha_lectura'];
+// Configurar Dompdf para permitir imágenes remotas
+$options = new \Dompdf\Options();
+$options->set('isHtml5ParserEnabled', true);
+$options->set('isPhpEnabled', true);
+$options->set('isRemoteEnabled', true); // IMPORTANTE para imágenes HTTP
+$options->set('defaultFont', 'Arial');
 
-$lectura_anterior   = $_POST['lec_anterior'];
-$lectura_actual     = $_POST['lec_actual'];
-$consumo            = $_POST['consumo'];
-$valor_consumo      = $_POST['valor_consumo'];
-
-$mantenimiento      = $_POST['mantenimiento'];
-$mora               = $_POST['mora'];
-$total              = $_POST['total'];
+$dompdf = new Dompdf($options);
 
 ob_start();
 include 'diseño.php';
 $html = ob_get_clean();
 
-$dompdf = new Dompdf();
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'portrait');
+
+// Renderizar
 $dompdf->render();
 
-// Ver en navegador
-$dompdf->stream("recibo_agua.pdf", ["Attachment" => false]);
+// Salida
+$dompdf->stream("recibo_agua_" . date('Y-m-d') . ".pdf", [
+    "Attachment" => false // true para descargar, false para ver en navegador
+]);
 ?>

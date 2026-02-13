@@ -1,3 +1,0 @@
-<?php
-echo " <h1>RESIDENCIAL HACIENDA SAN FRANCISCO</h1>";
-?>

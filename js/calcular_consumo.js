@@ -5,7 +5,8 @@
     var n2 = parseFloat(document.getElementById('lec_anterior').value);
     var n3 = parseFloat(document.getElementById('mantenimiento').value);
     var n4 = parseFloat(document.getElementById('saldo_pendiente').value);
-    var n5 = parseFloat(document.getElementById('recargo_mora').value);
+    var n5 = parseFloat(document.getElementById('recargo').value);
+    var pago_medidor = parseFloat(document.getElementById('pago_medidor').value);
  
     
     // 2. Realizar el cálculo
@@ -18,21 +19,21 @@
 
     if (resultado <=5) {
         document.getElementById('total_valor').value = 5;
-        var total = n3 + n4 + n5+5;
+        var total = n3 + n4 + n5+5+pago_medidor;
 document.getElementById('gran_total').value = total;
         
     } else if (resultado > 5 && resultado <= 10) {
         document.getElementById('total_valor').value = 10;
-        var total = n3 + n4 + n5+10;
+        var total = n3 + n4 + n5+10+pago_medidor;
 document.getElementById('gran_total').value = total;
     }else if (resultado > 10 && resultado <= 20) {
  document.getElementById('total_valor').value = 20;
-  var total = n3 + n4 + n5+20;
+  var total = n3 + n4 + n5+20+pago_medidor;
 document.getElementById('gran_total').value = total;
 
   }else if (resultado > 20 && resultado <= 50) {
  document.getElementById('total_valor').value = 50;
- var total = n3 + n4 + n5+50;
+ var total = n3 + n4 + n5+50+pago_medidor;
 document.getElementById('gran_total').value = total;
   
   }
