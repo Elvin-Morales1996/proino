@@ -88,6 +88,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : 0;
                     </select> </div>
 
                 <!--direccion-->
+                <label class="form-label">DIRECCION</label>
                 <input type="text" name="direccion" class="form-control"
                     value=" <?= $datos['direccion']; ?>">
                 <!--fecha inicio-->
