@@ -8,10 +8,10 @@
       
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/proino/index.php">home</a>
+          <a class="nav-link active" aria-current="page" href="index.php">home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/proino/vistas/usuario.php">usuario</a>
+          <a class="nav-link active" aria-current="page" href="vistas/usuario.php">usuario</a>
         </li>
       </ul>
     </div>
