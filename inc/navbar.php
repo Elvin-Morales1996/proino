@@ -7,7 +7,7 @@
       <a class="navbar-brand" href="/proino/index.php">inversiones</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/proino/index.php">home</a>
+          <a class="nav-link active" aria-current="page" onclick="window.location.href = 'index.php'">home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" onclick="window.location.href = 'vistas/usuario.php'">usuario</a>
