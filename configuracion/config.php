@@ -3,7 +3,7 @@ function conexion(){
     try {
         $host = "localhost";
         $dbname = "proitysv_proino";
-        $user = "proitysv_proino_user"; // ← prefijo OBLIGATORIO
+        $user = "proitysv_proino_user"; 
         $pass = "Laravel&php8";
 
         $pdo = new PDO(
