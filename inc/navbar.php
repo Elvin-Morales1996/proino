@@ -27,7 +27,7 @@
           <small class="text-muted d-block" style="font-size: 0.7rem; line-height: 1;">Hacienda</small>
           <span class="fw-bold text-dark" style="font-size: 0.9rem;">San Francisco</span>
         </div>
-        <img src="https://via.placeholder.com/40" alt="Logo Hacienda" class="rounded-circle border" style="width: 45px; height: 45px; object-fit: cover;">
+        <img src="../img/logoproino.jpeg" alt="Logo Hacienda" class="rounded-circle border" style="width: 45px; height: 45px; object-fit: cover;">
       </div>
     </div>
   </div>
