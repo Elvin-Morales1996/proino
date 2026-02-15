@@ -48,7 +48,7 @@ include("../inc/navbar.php");
   </div>
 
   <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-    <button  type="button" class="btn btn-primary" onclick="window.location.href='/proino/index.php'">REGRESAR</button>
+    <button  type="button" class="btn btn-primary" onclick="window.location.href='/'">REGRESAR</button>
     <button type="reset" class="btn btn-outline-secondary me-md-2">Limpiar</button>
     <button type="submit" class="btn btn-primary" >Guardar Registro</button>
   </div>

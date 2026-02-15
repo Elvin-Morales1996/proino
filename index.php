@@ -53,7 +53,7 @@ $datos = $datos->fetchAll();
                     <td><code><?php echo $dato['medidor']; ?></code></td>
                     <td><?php echo $dato['lote_poligono']; ?></td>
                     <td>
-                        <a href="/proino/vistas/recibo.php?id=<?php echo $dato['id']; ?>" class="btn-recibo">
+                        <a href="/vistas/recibo.php?id=<?php echo $dato['id']; ?>" class="btn-recibo">
                            📄 Generar Recibo
                         </a>
                     </td>
