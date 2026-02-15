@@ -41,7 +41,7 @@ $ruta_base = $protocolo . $host;
 // $ruta_imagen = $ruta_base . '/img/logoproino.jpeg';
 
 // Opción 2: Si tu_proyecto es la carpeta principal (recomendado)
-$ruta_imagen = $ruta_base . '/proino/img/logoproino.jpeg';
+$ruta_imagen = $ruta_base . '/img/logoproino.jpeg';
 
 // Opción 3: Detectar automáticamente (avanzado)
 /*
