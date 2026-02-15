@@ -59,7 +59,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : 0;
                     </select>
                 </div>
 
-                <!--poligono-->
+                
                 <!--nombre-->
                 <div class="mb-3"> <label name="lote_poligono" class="form-label">LOTE Y POLIGONO</label>
                     <select name="lote_poligono" class="form-select">
@@ -89,7 +89,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : 0;
 
                 <!--direccion-->
                 <input type="text" name="direccion" class="form-control"
-                    value="CANTON EL TRIUNFO LA HIELERIA">
+                    value=" <?= $datos['direccion']; ?>">
                 <!--fecha inicio-->
                 <div class="row">
                     <div class="col-6 mb-3"> <label class="form-label">FECHA INICIO</label>
