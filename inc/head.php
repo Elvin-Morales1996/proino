@@ -4,7 +4,7 @@
     <title>PROINO - Hacienda San Francisco</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="icon" type="image/png" href="/img/logoproino.jpeg">
     <style>
         body { background-color: #f8f9fa; padding: 20px; }
         .card { box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: none; }
