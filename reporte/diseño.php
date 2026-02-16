@@ -1,4 +1,6 @@
 <?php
+include '../configuracion/conexion.php';
+
 // Datos del formulario
 $nombre = $_POST['nombre'];
 $medidor = $_POST['medidor'];
