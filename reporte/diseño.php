@@ -59,31 +59,53 @@ if ($script_dir != '/') {
 
 
 //guardar el recibo en la base de datos
-$guardar_recibo = conexion();
-$guardar_recibo = $guardar_recibo->prepare("INSERT INTO 
-recibos (fecha_inicio, fecha_lectura, lec_actual, lec_anterior, mantenimiento, saldo_pendiente, pago_medidor, recargo, fecha_vencimiento, total, mes, consumo, consumo_mes ) VALUES 
-(:fecha_inicio, :fecha_lectura, :lec_actual, :lec_anterior, :mantenimiento, :saldo_pendiente, :pago_medidor, :recargo, :fecha_vencimiento, :total, :mes, :consumo, :consumo_mes)");
+// 1. Conexión (Asegúrate de que conexion() esté definida o incluida)
+$db = conexion(); 
 
+// 2. Preparar la consulta
+// Nota: Asegúrate de que los nombres de las columnas en tu tabla 'recibos' coincidan exactamente
+$sql = "INSERT INTO recibos (
+    fecha_inicio, fecha_lectura, lec_actual, lec_anterior, 
+    mantenimiento, saldo_pendiente, pago_medidor, recargo, 
+    fecha_vencimiento, total, mes, consumo, consumo_mes
+) VALUES (
+    :fecha_inicio, :fecha_lectura, :lec_actual, :lec_anterior, 
+    :mantenimiento, :saldo_pendiente, :pago_medidor, :recargo, 
+    :fecha_vencimiento, :total, :mes, :consumo, :consumo_mes
+)";
+
+$query = $db->prepare($sql);
+
+// 3. Mapeo de datos
+// IMPORTANTE: Para la BD usamos las variables originales ($_POST), 
+// ya que vienen en formato YYYY-MM-DD (estándar de input date)
 $marcadores = [
-    ':fecha_inicio' => $fecha_inicio_formateada,
-    ':fecha_lectura' => $fecha_lectura_formateada,
-    ':lec_actual' => $lec_actual,
-    ':lec_anterior' => $lec_anterior,
-    ':mantenimiento' => $mantenimiento,
-    ':saldo_pendiente' => $saldo_pendiente,
-    ':pago_medidor' => $pago_medidor,
-    ':recargo' => $saldo_pendiente,
-    ':recargo' => $mora,
-    ':fecha_vencimiento' => $fecha_vencimiento_formateada,
-    ':total' => $total,
-    ':mes' => $mes,
-    ':consumo' => $consumo,
-    ':consumo_mes' => $valor_consumo
-
-    
+    ':fecha_inicio'      => $fecha_inicio, // La original de $_POST
+    ':fecha_lectura'     => $fecha_lectura,
+    ':lec_actual'        => $lec_actual,
+    ':lec_anterior'      => $lec_anterior,
+    ':mantenimiento'     => $mantenimiento,
+    ':saldo_pendiente'   => $saldo_pendiente,
+    ':pago_medidor'      => $pago_medidor,
+    ':recargo'           => $mora,
+    ':fecha_vencimiento' => $fecha_vencimiento,
+    ':total'             => $total,
+    ':mes'               => $mes,
+    ':consumo'           => $consumo,
+    ':consumo_mes'       => $valor_consumo
 ];
-$guardar_recibo->execute($marcadores);
-$guardar_recibo = null; // Cerrar la conexión
+
+// 4. Ejecutar y cerrar
+if($query->execute($marcadores)){
+    // Opcional: puedes poner una marca de éxito para depurar
+    // echo "Guardado correctamente"; 
+} else {
+    // Esto te ayudará a ver por qué falla si hay error de SQL
+    print_r($query->errorInfo());
+}
+
+$query = null; 
+$db = null;
 
 
 
