@@ -86,5 +86,34 @@
     .btn-cta::after { display: none; }
 
 
+    /*diseño del boton eliminar */
+    .btn-eliminar {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background-color: #cc0000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Estilo para el icono si usas FontAwesome */
+.btn-eliminar i {
+    font-size: 14px;
+}
+
+
 
 

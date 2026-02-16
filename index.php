@@ -68,6 +68,16 @@ $datos = $datos->fetchAll();
         </table>
     </div>
 
+   <script>
+   function confirmarEliminacion(event, url) {
+    // Evita que el enlace se abra inmediatamente
+    event.preventDefault(); 
+    
+    if (confirm("¿Estás seguro de que deseas eliminar este recibo? Esta acción no se puede deshacer.")) {
+        window.location.href = url;
+    }
+}
+    </script>
 </body>
 
 </html>
