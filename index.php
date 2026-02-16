@@ -30,43 +30,44 @@ $datos = $datos->fetchAll();
 
 
 
-    <div class="table-container">
-        <table class="custom-table">
-            <thead>
+<div class="table-container">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Medidor</th>
+                <th>Lote y Polígono</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($datos as $dato) { ?>
                 <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Dirección</th>
-                    <th>Medidor</th>
-                    <th>Lote y Polígono</th>
-                    <th>Acciones</th>
+                    <td class="id-cell">#<?php echo $dato['id']; ?></td>
+                    <td class="name-cell"><?php echo $dato['nombre']; ?></td>
+                    <td><?php echo $dato['direccion']; ?></td>
+                    <td><span class="badge-meter"><?php echo $dato['medidor']; ?></span></td>
+                    <td><?php echo $dato['lote_poligono']; ?></td>
+                    <td class="actions-cell">
+                        <div class="btn-group-actions">
+                            <a href="/vistas/recibo.php?id=<?php echo $dato['id']; ?>" class="btn-action btn-recibo" title="Generar Recibo">
+                                <i class="fas fa-file-invoice"></i> <span>Recibo</span>
+                            </a>
+                            <a href="/php/delete_user.php?id=<?php echo $dato['id']; ?>" 
+                               class="btn-action btn-eliminar" 
+                               onclick="return confirmarEliminacion(event, this.href);" 
+                               title="Eliminar Usuario">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($datos as $dato) { ?>
-                    <tr>
-                        <td><strong><?php echo $dato['id']; ?></strong></td>
-                        <td><?php echo $dato['nombre']; ?></td>
-                        <td><?php echo $dato['direccion']; ?></td>
-                        <td><code><?php echo $dato['medidor']; ?></code></td>
-                        <td><?php echo $dato['lote_poligono']; ?></td>
-                        <td>
-                            <a href="/vistas/recibo.php?id=<?php echo $dato['id']; ?>" class="btn-recibo">
-                                📄 Generar Recibo
-                            </a>
-                        </td>
-                        <td>
-                            <a href="/php/delete_user.php?id=<?php echo $dato['id']; ?>"
-                                class="btn-eliminar"
-                                onclick="return confirmarEliminacion(event, this.href);">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
 
    <script>
    function confirmarEliminacion(event, url) {

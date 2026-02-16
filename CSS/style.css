@@ -85,35 +85,114 @@
     
     .btn-cta::after { display: none; }
 
+/*diseño del index de la tabla donde muestro los usuarios registrado*/
 
-    /*diseño del boton eliminar */
-    .btn-eliminar {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 13px;
+
+/* Contenedor principal con sombra y redondeo */
+.table-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.15);
+    padding: 20px;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+/* Tabla base */
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* Espaciado entre filas */
+}
+
+/* Encabezado */
+.custom-table thead th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 15px;
+    border: none;
+}
+
+/* Estilo de las filas */
+.custom-table tbody tr {
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f1f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.custom-table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+/* Celda de ID y Nombre */
+.id-cell { font-weight: bold; color: #1e73ff !important; }
+.name-cell { font-weight: 600; color: #333; }
+
+/* Badge para el medidor */
+.badge-meter {
+    background: #eef2f7;
+    color: #334155;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
     font-weight: bold;
+    border: 1px solid #d1d9e6;
+}
+
+/* Contenedor de botones */
+.btn-group-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Botones base */
+.btn-action {
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+/* Botón Recibo (Azul) */
+.btn-recibo {
+    background-color: #1e73ff;
+    color: white !important;
+}
+
+.btn-recibo:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(30, 115, 255, 0.3);
+}
+
+/* Botón Eliminar (Rojo/Icono) */
+.btn-eliminar {
+    background-color: #fff1f1;
+    color: #ff4d4d !important;
+    border: 1px solid #ffdada;
 }
 
 .btn-eliminar:hover {
-    background-color: #cc0000;
-    color: #fff;
-    transform: scale(1.05);
+    background-color: #ff4d4d;
+    color: white !important;
 }
-
-/* Estilo para el icono si usas FontAwesome */
-.btn-eliminar i {
-    font-size: 14px;
-}
-
 
 
 
