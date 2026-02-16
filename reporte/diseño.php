@@ -60,7 +60,7 @@ if ($script_dir != '/') {
 }
 */
 
-/*
+
 //guardar el recibo en la base de datos
 // 1. Conexión (Asegúrate de que conexion() esté definida o incluida)
 $db = conexion(); 
@@ -110,7 +110,7 @@ if($query->execute($marcadores)){
 $query = null; 
 $db = null;
 
-*/
+
 
 
 
