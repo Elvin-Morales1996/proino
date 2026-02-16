@@ -58,7 +58,7 @@ $datos = $datos->fetchAll();
                             <a href="/php/delete_user.php?id=<?php echo $dato['id']; ?>" 
                                class="btn-action btn-eliminar" 
                                onclick="return confirmarEliminacion(event, this.href);" 
-                               title="Eliminar Usuario">
+                               title="Eliminar Usuario"><span>Eliminar</span>
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
