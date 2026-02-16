@@ -60,7 +60,7 @@ if ($script_dir != '/') {
 
 //guardar el recibo en la base de datos
 $guardar_recibo = conexion();
-$guardar_usuario = $guardar_usuario->prepare("INSERT INTO 
+$guardar_recibo = $guardar_recibo->prepare("INSERT INTO 
 recibos (fecha_inicio, fecha_lectura, lec_actual, lec_anterior, mantenimiento, saldo_pendiente, pago_medidor, recargo, fecha_vencimiento, total, mes, consumo, consumo_mes ) VALUES 
 (:fecha_inicio, :fecha_lectura, :lec_actual, :lec_anterior, :mantenimiento, :saldo_pendiente, :pago_medidor, :recargo, :fecha_vencimiento, :total, :mes, :consumo, :consumo_mes)");
 
@@ -82,8 +82,8 @@ $marcadores = [
 
     
 ];
-$guardar_usuario->execute($marcadores);
-$guardar_usuario = null; // Cerrar la conexión
+$guardar_recibo->execute($marcadores);
+$guardar_recibo = null; // Cerrar la conexión
 
 
 
