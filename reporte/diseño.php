@@ -18,6 +18,10 @@ $mora = $_POST['mora'];
 $total = $_POST['total'];
 $pago_medidor = $_POST['pago_medidor'];
 
+
+
+
+
 // Función para formatear fechas
 function formatearFecha($fechaISO) {
     if (empty($fechaISO)) return '';
@@ -52,6 +56,60 @@ if ($script_dir != '/') {
     $ruta_imagen = $ruta_base . '/img/logoproino.jpeg';
 }
 */
+
+
+//guardar el recibo en la base de datos
+$guardar_recibo = conexion();
+$guardar_usuario = $guardar_usuario->prepare("INSERT INTO 
+recibos (fecha_inicio, fecha_lectura, lec_actual, lec_anterior, mantenimiento, saldo_pendiente, pago_medidor, recargo, fecha_vencimiento, total, mes, consumo, consumo_mes ) VALUES 
+(:fecha_inicio, :fecha_lectura, :lec_actual, :lec_anterior, :mantenimiento, :saldo_pendiente, :pago_medidor, :recargo, :fecha_vencimiento, :total, :mes, :consumo, :consumo_mes)");
+
+$marcadores = [
+    ':fecha_inicio' => $fecha_inicio_formateada,
+    ':fecha_lectura' => $fecha_lectura_formateada,
+    ':lec_actual' => $lec_actual,
+    ':lec_anterior' => $lec_anterior,
+    ':mantenimiento' => $mantenimiento,
+    ':saldo_pendiente' => $saldo_pendiente,
+    ':pago_medidor' => $pago_medidor,
+    ':recargo' => $saldo_pendiente,
+    ':recargo' => $mora,
+    ':fecha_vencimiento' => $fecha_vencimiento_formateada,
+    ':total' => $total,
+    ':mes' => $mes,
+    ':consumo' => $consumo,
+    ':consumo_mes' => $valor_consumo
+
+    
+];
+$guardar_usuario->execute($marcadores);
+
+if ($guardar_usuario->rowCount()==1) {
+    echo '<div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+            <i class="bi bi-check-circle-fill fs-4 me-2"></i>
+            <div><strong>¡Éxito!</strong> Usuario registrado correctamente.</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>';
+} else {
+    echo '<div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+            <i class="bi bi-x-circle-fill fs-4 me-2"></i>
+            <div><strong>¡Error!</strong> No se pudo registrar el usuario.</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>';
+}
+
+$guardar_usuario = null; // Cerrar la conexión
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
