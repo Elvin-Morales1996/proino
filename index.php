@@ -56,7 +56,7 @@ $datos = $datos->fetchAll();
                             </a>
                         </td>
                         <td>
-                            <a href="/vistas/recibo.php?id=<?php echo $dato['id']; ?>"
+                            <a href="/php/delete_user.php?id=<?php echo $dato['id']; ?>"
                                 class="btn-eliminar"
                                 onclick="return confirmarEliminacion(event, this.href);">
                                 <i class="fas fa-trash-alt"></i> Eliminar
