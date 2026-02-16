@@ -56,7 +56,7 @@ $datos = $datos->fetchAll();
                             </a>
                         </td>
                         <td>
-                            <a href="/vistas/recibo.php?id=<?php echo $dato['id']; ?>" class="btn-elminar">
+                            <a href="/php/delete_user.php?id=<?php echo $dato['id']; ?>" class="btn-elminar">
                                 elminar
                             </a>
                         </td>
