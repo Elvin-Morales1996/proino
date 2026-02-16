@@ -83,21 +83,6 @@ $marcadores = [
     
 ];
 $guardar_usuario->execute($marcadores);
-
-if ($guardar_usuario->rowCount()==1) {
-    echo '<div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
-            <i class="bi bi-check-circle-fill fs-4 me-2"></i>
-            <div><strong>¡Éxito!</strong> Usuario registrado correctamente.</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>';
-} else {
-    echo '<div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
-            <i class="bi bi-x-circle-fill fs-4 me-2"></i>
-            <div><strong>¡Error!</strong> No se pudo registrar el usuario.</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>';
-}
-
 $guardar_usuario = null; // Cerrar la conexión
 
 
